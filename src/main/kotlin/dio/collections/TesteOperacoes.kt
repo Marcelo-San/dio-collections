@@ -17,6 +17,24 @@ fun main() {
     val refSalario = 2200.55
     val filtrarSalario = salarios.filter { it > refSalario }
     println("---------------")
-    println("SALÁRIOS MAIORES DO QUE R$ ${refSalario}: ")
+    println("SALÁRIOS MAIORES DO QUE R$ ${refSalario}:")
     filtrarSalario.forEach { println("R$ ${it}") }
+
+    //Filtrando as saídas de salário para contar quantos estão entre R$ 2000,00 e R$ 5000,00.
+    val salarioInicial = 2000.0
+    val salarioFinal = 5000.0
+    println("---------------")
+    println("QUANTIDADE DE SALÁRIOS ENTRE R$ ${salarioInicial} e ${salarioFinal}:")
+    println(salarios.count { it in salarioInicial..salarioFinal }) //Chamamos essa faixa de RANGE.
+
+    //Filtrando as saídas de salário para buscar no array um valor referido.
+    val procurarSalario = 2250.0
+    println("---------------")
+    println("Buscando salário igual a R$ ${procurarSalario}:")
+    println("Resultado: R$ " + salarios.find { it == procurarSalario })
+
+    //Filtrando as saídas de salário para buscar no array qualquer valor onde a expressão seja válida. Se for, "true", senão, "false".
+    println("---------------")
+    println(salarios.any { it == 1000.0 }) //Expressão verdadeira.
+    println(salarios.any { it == 500.0 }) //Expressão falsa.
 }
