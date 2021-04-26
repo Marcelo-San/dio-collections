@@ -2,8 +2,8 @@ package dio.collections
 
 fun main() {
     //Criando os objetos.
-    val marcelo = Funcionario("Marcelo", 1000.0)
-    val nelson = Funcionario("Nelson", 2000.0)
+    val marcelo = Funcionario("Marcelo", 2000.0)
+    val nelson = Funcionario("Nelson", 1500.0)
     val alex = Funcionario("Alex", 4000.0)
 
     val funcionarios = listOf(marcelo, nelson, alex)
@@ -11,8 +11,13 @@ fun main() {
     funcionarios.forEach { println(it) } //Para imprimir cada objeto (it).
 
     //Buscando os dados de um determinado funcionário.
-    val procurarFuncionario = "Marcelo"
-    funcionarios.find { it.nome == procurarFuncionario }
+    println("----------------------")
+    val procurarFuncionario = "Alex"
+    println(funcionarios.find { it.nome == procurarFuncionario })
+
+    //Ordenando a lista de funcionários através do salário.
+    println("----------------------")
+    funcionarios.sortedBy { it.salario }.forEach { println(it) }//Aqui, estamos passando como queremos ordenar.
 }
 
 //Criando uma classe de dados para os objetos.
@@ -22,7 +27,6 @@ data class Funcionario(
 ) {
     override fun toString(): String =
         """
-            ____________________
             Nome:    $nome
             Salário: R$ $salario
         """.trimIndent()
